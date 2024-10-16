@@ -3,15 +3,11 @@ package stepDefinitions.Login;
 import common.BaseTest;
 import io.cucumber.java.en.*;
 
-import static common.BaseTest.driver;
-
 public class StepsLoginCMS {
     @Given("user navigate to login")
     public void userNavigateToLogin() {
-        BaseTest.openBrowser();
-        BaseTest.openURL("https://crm.anhtester.com/admin/authentication");
-        BaseTest.sleep(5);
-        BaseTest.closeBrowser();
+        BaseTest.createBrowser();
+        BaseTest.openURL("https://www.demoblaze.com/index.html");
     }
 
     @When("user insert {string} abd {string} success")
