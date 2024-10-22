@@ -10,6 +10,7 @@ public class StepsLoginCMS {
     public void userNavigateToLogin() {
         BaseTest.createBrowser();
         BaseTest.openURL("https://www.saucedemo.com/");
+//        loginPage.verifyLoginPage();
     }
     @When("user insert username and password success")
     public void userInsertUsernameAndPasswordSuccess() {
@@ -23,5 +24,15 @@ public class StepsLoginCMS {
 
     @Then("user redirect to admin page")
     public void userRedirectToAdminPage() {
+        loginPage.verifyLoginPageSuccess();
+    }
+
+    @When("user insert username wrong and password wrong")
+    public void userInsertUsernameWrongAndPasswordWrong() {
+        
+    }
+
+    @Then("verify text when login fail")
+    public void verifyTextWhenLoginFail() {
     }
 }

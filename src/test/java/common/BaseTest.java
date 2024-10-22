@@ -85,7 +85,7 @@ public class BaseTest {
     public static WebElement highLightElement(By by) {
         // Tô màu border ngoài chính element chỉ định - màu đỏ (có thể đổi màu khác)
         if (DriverManager.getDriver() instanceof JavascriptExecutor) {
-            ((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].style.border='2px solid red'", getWebElement(by));
+            ((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].style.border='1px solid red'", getWebElement(by));
             sleep(0.5);
         }
         return getWebElement(by);
