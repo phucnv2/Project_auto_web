@@ -2,19 +2,21 @@ package stepDefinitions.Login;
 
 import common.BaseTest;
 import io.cucumber.java.en.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
 
-public class StepsLoginCMS {
+public class StepsLoginCMS extends BaseTest{
     LoginPage loginPage;
+
     @Given("user navigate to login")
     public void userNavigateToLogin() {
-        BaseTest.createBrowser();
-        BaseTest.openURL("https://www.saucedemo.com/");
-//        loginPage.verifyLoginPage();
+        openURL("https://www.saucedemo.com/");
+        loginPage = new LoginPage();
+        loginPage.verifyLoginPage();
     }
     @When("user insert username and password success")
     public void userInsertUsernameAndPasswordSuccess() {
-        loginPage = new LoginPage();
         loginPage.userInsertAndSuccess("standard_user","secret_sauce");
     }
     @And("click login button")
@@ -25,14 +27,5 @@ public class StepsLoginCMS {
     @Then("user redirect to admin page")
     public void userRedirectToAdminPage() {
         loginPage.verifyLoginPageSuccess();
-    }
-
-    @When("user insert username wrong and password wrong")
-    public void userInsertUsernameWrongAndPasswordWrong() {
-        
-    }
-
-    @Then("verify text when login fail")
-    public void verifyTextWhenLoginFail() {
     }
 }
