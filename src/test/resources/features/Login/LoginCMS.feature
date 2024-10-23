@@ -11,7 +11,7 @@ Feature: Login CMS
   Scenario: Login success
     Given user navigate to login "https://www.saucedemo.com/"
     When user insert "standard_user" wrong and "secret_sauce" wrong
-    And click login button
+    And click login buttonn
     Then verify text when login fail
 #    Examples:
 #      | url                        | username      | password     |
