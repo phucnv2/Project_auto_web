@@ -1,18 +1,18 @@
 package stepDefinitions.Login;
 
-import common.BaseTest;
 import io.cucumber.java.en.*;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
 
-public class StepsLoginCMS extends BaseTest{
+import static common.BasePage.openURL;
+
+
+public class LoginDef{
     LoginPage loginPage;
 
     @Given("user navigate to login")
     public void userNavigateToLogin() {
+//        loginPage.openBrowser("https://www.saucedemo.com/");
         openURL("https://www.saucedemo.com/");
-        loginPage = new LoginPage();
         loginPage.verifyLoginPage();
     }
     @When("user insert username and password success")

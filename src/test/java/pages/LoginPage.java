@@ -1,10 +1,10 @@
 package pages;
 
-import common.BaseTest;
+import common.BasePage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-public class LoginPage extends BaseTest{
+public class LoginPage extends BasePage {
     private By inputUserName = By.xpath("//input[@id='user-name']");
     private By inputPassword = By.xpath("//input[@id='password']");
     private By buttonLogin = By.xpath("//input[@id='login-button']");
@@ -14,6 +14,9 @@ public class LoginPage extends BaseTest{
     private By headerUsernameNull = By.xpath("//h3[normalize-space()='Epic sadface: Username is required']"); // cả 2 cungf null là xài cái này
     private By headerPasswordNull = By.xpath("//h3[normalize-space()='Epic sadface: Password is required']");
 
+    public void openBrowser(String url){
+        openURL(url);
+    }
     public void userInsertAndSuccess(String username, String password) {
         setText(inputUserName, username);
         setText(inputPassword, password);
@@ -29,13 +32,5 @@ public class LoginPage extends BaseTest{
 
     public void verifyLoginPageSuccess() {
         Assert.assertEquals(getElementText(titleLoginSuccess),"Swag Labs","Fail! Đây không phải trang đăng nhập");
-    }
-
-    public void verifyLoginFail() {
-
-    }
-
-    public void verifyUserNull() {
-
     }
 }

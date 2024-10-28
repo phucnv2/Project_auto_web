@@ -12,7 +12,7 @@ import org.testng.Assert;
 import java.time.Duration;
 
 
-public class BaseTest {
+public class BasePage {
 
 
     public static void createBrowser() {
@@ -30,7 +30,6 @@ public class BaseTest {
 
     public static void openURL(String url) {
         DriverManager.getDriver().get(url);
-        sleep(0);
     }
 
     public static void closeBrowser() {
@@ -67,7 +66,7 @@ public class BaseTest {
         }
     }
 
-    public static void setText(By by, String text) {
+    public void setText(By by, String text) {
         waitForElementVisible(by);
         highLightElement(by);
         DriverManager.getDriver().findElement(by).sendKeys(text);
@@ -75,7 +74,6 @@ public class BaseTest {
 
     public static void clickElement(By by) {
         waitForElementClickable(by);
-        sleep(0);
         highLightElement(by);
         getWebElement(by).click();
     }
@@ -94,7 +92,7 @@ public class BaseTest {
     public static WebElement highLightElement(By by) {
         // Tô màu border ngoài chính element chỉ định - màu đỏ (có thể đổi màu khác)
         if (DriverManager.getDriver() instanceof JavascriptExecutor) {
-            ((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].style.border='1px solid red'", getWebElement(by));
+            ((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].style.border='2px solid red'", getWebElement(by));
             sleep(0.5);
         }
         return getWebElement(by);
