@@ -1,25 +1,15 @@
-
+import io.cucumber.junit.CucumberSerenityRunner;
 import io.cucumber.testng.CucumberOptions;
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import org.junit.runner.RunWith;
 
-import static common.BasePage.*;
-
+@RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
-        glue = "stepDefinitions",
-        plugin = {"pretty", "html:target/cucumber-html-report.html"}
+        features = "src/test/resources/features", // Đường dẫn đến các file feature
+        glue = "stepDefinitions",                  // Đường dẫn đến các lớp step definitions
+        plugin = {"pretty", "html:target/cucumber-reports.html"}, // Các plugin để tạo báo cáo
+        tags = "@RunTest"
 )
-@Test
-public class RunTest extends AbstractTestNGCucumberTests {
-    @BeforeMethod
-    public void browser(){
-        createBrowser();
-    }
-    @AfterMethod
-    public void close(){
-        closeBrowser();
-    }
+public class RunTest {
 }

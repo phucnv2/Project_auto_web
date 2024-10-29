@@ -33,4 +33,8 @@ public class LoginPage extends BasePage {
     public void verifyLoginPageSuccess() {
         Assert.assertEquals(getElementText(titleLoginSuccess),"Swag Labs","Fail! Đây không phải trang đăng nhập");
     }
+
+    public void test() {
+        System.out.println("xin chao");
+    }
 }

@@ -1,5 +1,6 @@
 package common;
 
+import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -14,13 +15,12 @@ import java.time.Duration;
 
 public class BasePage {
 
-
-    public static void createBrowser() {
+    public void createBrowser() {
         WebDriver driver = setBrowser();
         DriverManager.setDriver(driver);
     }
 
-    public static WebDriver setBrowser() {
+    public WebDriver setBrowser() {
         WebDriver driver;
         driver = new ChromeDriver();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
@@ -28,15 +28,15 @@ public class BasePage {
         return driver;
     }
 
-    public static void openURL(String url) {
+    public void openURL(String url) {
         DriverManager.getDriver().get(url);
     }
 
-    public static void closeBrowser() {
+    public void closeBrowser() {
         DriverManager.quit();
     }
 
-    public static void sleep(double second) {
+    public void sleep(double second) {
         try {
             Thread.sleep((long) (1000 * second));
         } catch (InterruptedException e) {
@@ -44,11 +44,11 @@ public class BasePage {
         }
     }
 
-    public static WebElement getWebElement(By by) {
+    public WebElement getWebElement(By by) {
         return DriverManager.getDriver().findElement(by);
     }
 
-    public static void waitForElementClickable(By by) {
+    public void waitForElementClickable(By by) {
         try {
             WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10), Duration.ofMillis(500));
             wait.until(ExpectedConditions.elementToBeClickable(getWebElement(by)));
@@ -57,7 +57,7 @@ public class BasePage {
         }
     }
 
-    public static void waitForElementVisible(By by) {
+    public void waitForElementVisible(By by) {
         try {
             WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10), Duration.ofMillis(500));
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -72,24 +72,24 @@ public class BasePage {
         DriverManager.getDriver().findElement(by).sendKeys(text);
     }
 
-    public static void clickElement(By by) {
+    public void clickElement(By by) {
         waitForElementClickable(by);
         highLightElement(by);
         getWebElement(by).click();
     }
 
-    public static boolean getCurrentUrl(String textUrl) {
+    public boolean getCurrentUrl(String textUrl) {
         boolean text = DriverManager.getDriver().getCurrentUrl().contains(textUrl);
         return true;
     }
 
-    public static String getElementText(By by) {
+    public String getElementText(By by) {
         waitForElementVisible(by);
         String text = DriverManager.getDriver().findElement(by).getText();
         return text;
     }
 
-    public static WebElement highLightElement(By by) {
+    public WebElement highLightElement(By by) {
         // Tô màu border ngoài chính element chỉ định - màu đỏ (có thể đổi màu khác)
         if (DriverManager.getDriver() instanceof JavascriptExecutor) {
             ((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].style.border='2px solid red'", getWebElement(by));

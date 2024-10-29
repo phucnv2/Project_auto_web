@@ -1,24 +1,35 @@
-package stepDefinitions.Login;
+package stepDefinitions;
 
-import io.cucumber.java.en.*;
+import common.BasePage;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import net.serenitybdd.annotations.Steps;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import pages.LoginPage;
 
-import static common.BasePage.openURL;
+@RunWith(SerenityRunner.class)
+public class LoginDef extends BasePage {
 
-
-public class LoginDef{
+    @Steps
+    BasePage basePage;
+    @Steps
     LoginPage loginPage;
 
     @Given("user navigate to login")
     public void userNavigateToLogin() {
-//        loginPage.openBrowser("https://www.saucedemo.com/");
         openURL("https://www.saucedemo.com/");
         loginPage.verifyLoginPage();
     }
+
     @When("user insert username and password success")
     public void userInsertUsernameAndPasswordSuccess() {
-        loginPage.userInsertAndSuccess("standard_user","secret_sauce");
+        loginPage.userInsertAndSuccess("standard_user", "secret_sauce");
     }
+
     @And("click login button")
     public void clickLoginButton() {
         loginPage.clickButtonLogin();

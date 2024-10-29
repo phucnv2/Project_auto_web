@@ -7,6 +7,11 @@ Feature: Login CMS
     And click login button
     Then user redirect to admin page
 
+  @RunTest
+  Scenario: Run Test
+    Given user navigate to login
+
+
 #  @loginSuccess_01
 #  Scenario: Login success
 #    Given user navigate to login "https://www.saucedemo.com/"
