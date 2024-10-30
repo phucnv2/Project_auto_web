@@ -1,13 +1,14 @@
-package common;
-import io.cucumber.java.Before;
+package com.autoTest.definitions;
+
+import com.autoTest.common.BasePage;
+import com.autoTest.common.DriverManager;
 import io.cucumber.java.After;
-import pages.LoginPage;
+import io.cucumber.java.Before;
 
 public class Hooks extends BasePage {
 
     @Before
     public void setUp() {
-        // create browser
         createBrowser();
         System.out.println("Starting the scenario...");
     }

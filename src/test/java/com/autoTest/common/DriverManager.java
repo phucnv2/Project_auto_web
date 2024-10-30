@@ -1,4 +1,4 @@
-package common;
+package com.autoTest.common;
 
 import org.openqa.selenium.WebDriver;
 

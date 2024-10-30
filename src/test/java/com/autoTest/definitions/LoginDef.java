@@ -1,17 +1,13 @@
-package stepDefinitions;
+package com.autoTest.definitions;
 
-import common.BasePage;
+import com.autoTest.common.BasePage;
+import com.autoTest.steps.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
-import net.serenitybdd.junit.runners.SerenityRunner;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import pages.LoginPage;
 
-@RunWith(SerenityRunner.class)
 public class LoginDef extends BasePage {
 
     @Steps

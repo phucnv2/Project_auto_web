@@ -7,10 +7,9 @@ Feature: Login CMS
     And click login button
     Then user redirect to admin page
 
-  @RunTest
-  Scenario: Run Test
+  @TestTag
+  Scenario: Test tag
     Given user navigate to login
-
 
 #  @loginSuccess_01
 #  Scenario: Login success
