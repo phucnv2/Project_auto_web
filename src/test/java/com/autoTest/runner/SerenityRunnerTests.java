@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty"}
         , features = "src/test/resources/features/Login/Login.feature"
         , glue = "com.autoTest.definitions"
-//        , tags = "@loginSuccess"
+        , tags = "@ValidCredentials"
 )
 public class SerenityRunnerTests {
 }

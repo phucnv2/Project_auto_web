@@ -1,5 +1,11 @@
 package com.autoTest.common;
 
+import net.serenitybdd.annotations.Step;
+import net.serenitybdd.core.Serenity;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
+import net.thucydides.model.environment.SystemEnvironmentVariables;
+import net.thucydides.model.util.EnvironmentVariables;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,10 +15,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import java.time.Duration;
 
 
-public class BasePage {
+public class BasePage extends PageObject {
 
     public void createBrowser() {
         WebDriver driver = setBrowser();
@@ -27,6 +34,7 @@ public class BasePage {
         return driver;
     }
 
+    @Step("Open url")
     public void openURL(String url) {
         DriverManager.getDriver().get(url);
     }

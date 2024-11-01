@@ -7,10 +7,11 @@ Feature: Login CMS
     And click login button
     Then user redirect to admin page
 
-  @TestTag
-  Scenario: Test tag
-    Given user navigate to login
-
+  @ValidCredentials
+  Scenario: Login with valid credentials
+    Given Open web "oranHRM"
+    When User enters username as "Admin"
+    And User enters password as "admin123"
 #  @loginSuccess_01
 #  Scenario: Login success
 #    Given user navigate to login "https://www.saucedemo.com/"
