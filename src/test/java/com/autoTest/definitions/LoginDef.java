@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
 
-public class LoginDef extends BasePage {
+public class LoginDef {
 
     @Steps
     BasePage basePage;
@@ -17,8 +17,13 @@ public class LoginDef extends BasePage {
 
     @Given("user navigate to login")
     public void userNavigateToLogin() {
-        openURL("https://www.saucedemo.com/");
+        basePage.openURL("https://www.saucedemo.com/");
         loginPage.verifyLoginPage();
+    }
+
+    @When("Open web {string}")
+    public void loginByDomain(String domain) {
+        loginPage.openWebByDomain(domain);
     }
 
     @When("user insert username and password success")
