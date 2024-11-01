@@ -17,6 +17,7 @@ public class LoginDef {
 
     @Given("user navigate to login")
     public void userNavigateToLogin() {
+        basePage.createBrowser();
         basePage.openURL("https://www.saucedemo.com/");
         loginPage.verifyLoginPage();
     }
