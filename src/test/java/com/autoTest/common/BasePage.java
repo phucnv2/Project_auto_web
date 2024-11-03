@@ -32,7 +32,6 @@ public class BasePage extends PageObject {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
         driver.manage().window().maximize();
-//        driver.navigate().to("http://localhost:8080/leiloes");
         return driver;
 
 
