@@ -1,23 +1,17 @@
 package com.autoTest.common;
 
 import net.serenitybdd.annotations.Step;
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
-import net.thucydides.model.environment.SystemEnvironmentVariables;
-import net.thucydides.model.util.EnvironmentVariables;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 import java.time.Duration;
-
 
 public class BasePage extends PageObject {
 
@@ -28,14 +22,24 @@ public class BasePage extends PageObject {
 
     public WebDriver setBrowser() {
         WebDriver driver;
-        driver = new ChromeDriver();
+//        driver = new ChromeDriver();
+//        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
+//        driver.manage().window().maximize();
+
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
         driver.manage().window().maximize();
+//        driver.navigate().to("http://localhost:8080/leiloes");
         return driver;
+
+
     }
 
     @Step("Open url")
-    public void openURL(String url) {
+    public void openURL( java.lang.String url) {
         DriverManager.getDriver().get(url);
     }
 
@@ -73,7 +77,7 @@ public class BasePage extends PageObject {
         }
     }
 
-    public void setText(By by, String text) {
+    public void setText(By by, java.lang.String text) {
         waitForElementVisible(by);
         highLightElement(by);
         DriverManager.getDriver().findElement(by).sendKeys(text);
@@ -90,9 +94,9 @@ public class BasePage extends PageObject {
         return true;
     }
 
-    public String getElementText(By by) {
+    public java.lang.String getElementText(By by) {
         waitForElementVisible(by);
-        String text = DriverManager.getDriver().findElement(by).getText();
+        java.lang.String text = DriverManager.getDriver().findElement(by).getText();
         return text;
     }
 
