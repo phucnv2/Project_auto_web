@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
         , glue = "com.autoTest.definitions"
         , tags = "@ValidCredentials"
 )
-public class SerenityRunnerTests {
+public class SerenityTestSuite {
 }
