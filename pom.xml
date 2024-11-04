@@ -13,7 +13,6 @@
         <serenity.version>4.2.6</serenity.version>
         <junit.version>4.13.2</junit.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>3.2.3</maven.surefire.plugin.version>
         <maven.failsafe.plugin.version>3.2.3</maven.failsafe.plugin.version>
         <maven.compiler.source.version>17</maven.compiler.source.version>
         <maven.compiler.target.version>17</maven.compiler.target.version>
@@ -93,23 +92,23 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.plugin.version}</version>
-                <configuration>
-                    <includes>
-                        <include>**/*UnitTest.java</include> <!-- Hoặc **/*Tests.java -->
-                    </includes>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>3.2.3</version>-->
+<!--                <configuration>-->
+<!--                    <includes>-->
+<!--                        <include>**/*TestSuite.java</include> &lt;!&ndash; Hoặc **/*Tests.java &ndash;&gt;-->
+<!--                    </includes>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven.failsafe.plugin.version}</version>
                 <configuration>
                     <includes>
-                        <include>**/*TestSuite.java</include>
+                        <include>**/*Test*.java</include>
                     </includes>
                     <parallel>classes</parallel>
                     <threadCount>1</threadCount>
