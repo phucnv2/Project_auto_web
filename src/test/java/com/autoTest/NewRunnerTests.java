@@ -1,4 +1,4 @@
-package com.autoTest.runner;
+package com.autoTest;
 
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
@@ -7,9 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty"}
-        , features = "src/test/resources/features/Login/Login.feature"
+        , features = "src/test/resources/features"
         , glue = "com.autoTest.definitions"
-        , tags = "@ValidCredentials"
+        , tags = "@NewFeature"
 )
-public class SerenityRunnerTests {
+public class NewRunnerTests {
 }
+

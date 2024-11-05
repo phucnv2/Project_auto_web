@@ -28,7 +28,6 @@ public class LoginPage extends PageObject {
         String nameOpenWeb = Constant.DATA_FILE_CONF.getProperty("environments.default.domain." + nameDomain);
         openAt(nameOpenWeb);
         DriverManager.setDriver(Serenity.getDriver());
-        Serenity.getDriver().manage().window().maximize();
     }
 
     @Step

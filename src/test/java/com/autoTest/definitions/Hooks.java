@@ -5,9 +5,8 @@ import com.autoTest.common.Constant;
 import com.autoTest.common.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import net.serenitybdd.core.Serenity;
 
-public class Hooks extends BasePage {
+public class Hooks {
 
     @Before
     public void setUp() {
