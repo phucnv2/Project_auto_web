@@ -1,25 +1,16 @@
 package com.autoTest.common;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
-import net.thucydides.model.environment.SystemEnvironmentVariables;
-import net.thucydides.model.util.EnvironmentVariables;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.Properties;
 
 public class Constant {
+    public static String ENVIRONMENT;
     public static EnvironmentSpecificConfiguration DATA_FILE_CONF;
-
-    public Constant() {
-        DATA_FILE_CONF = loadFileConf();
-    }
-
-    /**
-     * get properties dataFileConf.getProperty("serenity.take.screenshots");
-     *
-     * @return
-     */
-    public EnvironmentSpecificConfiguration loadFileConf() {
-        EnvironmentVariables environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
-        return EnvironmentSpecificConfiguration.from(environmentVariables);
-    }
-
+    public static Properties DATA_FILE_PROPERTIES;
+    public static JdbcTemplate JDBC_TEMPLATE;
+    public static JsonNode DATA_FILE_DATABASE_YML;
 
 }

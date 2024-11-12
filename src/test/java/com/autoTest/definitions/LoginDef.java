@@ -1,6 +1,7 @@
 package com.autoTest.definitions;
 
-import com.autoTest.common.BasePage;
+import com.autoTest.steps.BasePage;
+import com.autoTest.model.repository.UserSteps;
 import com.autoTest.steps.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -24,6 +25,8 @@ public class LoginDef {
 
     @When("Open web {string}")
     public void loginByDomain(String domain) {
+        UserSteps userSteps = new UserSteps();
+        userSteps.getUserEmailByName();
         loginPage.openWebByDomain(domain);
     }
 

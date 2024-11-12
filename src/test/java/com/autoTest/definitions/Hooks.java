@@ -1,8 +1,7 @@
 package com.autoTest.definitions;
 
-import com.autoTest.common.BasePage;
-import com.autoTest.common.Constant;
 import com.autoTest.common.DriverManager;
+import com.autoTest.common.LoadData;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
@@ -20,6 +19,6 @@ public class Hooks {
     }
 
     static {
-        new Constant();
+        new LoadData();
     }
 }

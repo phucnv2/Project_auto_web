@@ -1,11 +1,8 @@
-package com.autoTest.common;
+package com.autoTest.steps;
 
+import com.autoTest.common.DriverManager;
 import net.serenitybdd.annotations.Step;
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
-import net.thucydides.model.environment.SystemEnvironmentVariables;
-import net.thucydides.model.util.EnvironmentVariables;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

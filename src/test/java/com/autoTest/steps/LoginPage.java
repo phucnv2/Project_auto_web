@@ -1,6 +1,5 @@
 package com.autoTest.steps;
 
-import com.autoTest.common.BasePage;
 import com.autoTest.common.Constant;
 import com.autoTest.common.DriverManager;
 import net.serenitybdd.annotations.Step;
