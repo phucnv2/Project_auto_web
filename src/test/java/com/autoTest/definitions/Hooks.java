@@ -9,6 +9,7 @@ public class Hooks {
 
     @Before
     public void setUp() {
+        new LoadData();
         System.out.println("Starting the scenario...");
     }
 
@@ -18,7 +19,4 @@ public class Hooks {
         System.out.println("Ending the scenario...");
     }
 
-    static {
-        new LoadData();
-    }
 }

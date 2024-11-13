@@ -23,7 +23,7 @@ public class LoadData {
         Constant.DATA_FILE_DATABASE_YML = loadFileYML(Constant.ENVIRONMENT);
         Constant.JDBC_TEMPLATE = jdbcTemplate(Constant.DATA_FILE_PROPERTIES);
         Constant.JDBC_TEMPLATE = jdbcTemplate(Constant.DATA_FILE_DATABASE_YML);
-
+        loadPropertyRunMVN();
     }
 
     /**
@@ -69,7 +69,7 @@ public class LoadData {
 
     public JdbcTemplate jdbcTemplate(JsonNode fileDataBaseYML) {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl(fileDataBaseYML.at("/database/url").asText());
+        dataSource.setUrl(fileDataBaseYML.at("/datasource/url").asText());
         dataSource.setUsername(fileDataBaseYML.at("/datasource/username").asText());
         dataSource.setPassword(fileDataBaseYML.at("/datasource/password").asText());
         dataSource.setDriverClassName(fileDataBaseYML.at("/datasource/driver").asText());
@@ -84,6 +84,11 @@ public class LoadData {
     @SneakyThrows
     public JsonNode loadFileYML(String env) {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        return mapper.readTree(new File("databaseConf.yml")).at(env);
+        return mapper.readTree(new File("src/test/resources/databaseConf.yml")).at("/" + env);
+    }
+
+    public void loadPropertyRunMVN() {
+        System.out.println(" Moi truong " + System.getProperty("serenity.environment"));
+        Constant.ENVIRONMENT = System.getProperty("serenity.environment") == null ? Constant.ENVIRONMENT : System.getProperty("serenity.environment");
     }
 }

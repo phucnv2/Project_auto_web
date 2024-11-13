@@ -24,7 +24,7 @@ public class LoginPage extends PageObject {
 
     @Step
     public void openWebByDomain(String nameDomain) {
-        String nameOpenWeb = Constant.DATA_FILE_CONF.getProperty("environments.default.domain." + nameDomain);
+        String nameOpenWeb = Constant.DATA_FILE_CONF.getProperty(String.format("environments.%s.domain.%s",Constant.ENVIRONMENT, nameDomain));
         openAt(nameOpenWeb);
         DriverManager.setDriver(Serenity.getDriver());
     }

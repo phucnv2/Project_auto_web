@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class UserSteps {
     public void getUserEmailByName() {
@@ -20,7 +21,8 @@ public class UserSteps {
             student.setName(rs.getString("name"));
             return student;
         });
-
+        // query no map object class
+        List<Map<String, Object>> studentList4 = connectDB.queryForList(sql);
         // get list id student map List<Integer>
         List<Integer> studentList3 = connectDB.queryForList("SELECT id FROM student", Integer.class);
         System.out.println("studentList1: " + Arrays.toString(studentList1.toArray()));
